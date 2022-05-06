@@ -50,7 +50,7 @@ IP_UBUNTU="172.21.21.102"
 ----------------------------------------------------------------------------------------
 # Revisores de examen
 
-## Capítulo 1 - Configuraciones iniciales
+## Capítulo 0 - Configuraciones iniciales
 Una vez que hayas realizado todos los pasos requeridos por Capítulo 1: Configuraciones iniciales
 1. Ejecuta el revisor de exámen
 	- Descripciones sujetas a modificación
