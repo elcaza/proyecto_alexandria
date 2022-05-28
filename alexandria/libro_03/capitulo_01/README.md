@@ -18,7 +18,6 @@ Realiza lo siguiente:
 ## Capítulo 1 - Debian
 Una vez que hayas realizado todos los pasos requeridos por el capítulo
 1. Ejecuta el revisor de exámen
-	- Descripciones sujetas a modificación
 	- ¡Recuerda guardar el FLAG obtenido!
 
 
@@ -26,4 +25,4 @@ Una vez que hayas realizado todos los pasos requeridos por el capítulo
 Seguir esta política es importante porque de esta manera el evaluador de la práctica analizará ciertos incisos requeridos por la práctica.
 
 ## Usuario primario
-1. Crea tu propio usuario con la letra "e" y tu número de cuenta, por ejemplo "d311266123"
+1. Crea tu propio usuario con la letra "d" y tu número de cuenta, por ejemplo "d311266123"

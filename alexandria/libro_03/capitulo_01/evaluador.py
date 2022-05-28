@@ -8,29 +8,34 @@ from shutil import which
 from os import popen
 import os.path
 import hashlib
+import base64
+import codecs
+
+delimitador = "*#*"
 
 ######################################################
-# Variables globales
+# Create flag
 
-# Documento evaluador
-evaluador = "evaluador.py"
-# Path del documento
-path = "/opt/alexandria"
+def create_flag(puntaje):
+	actual_script = (os.path.basename(__file__)).strip() + delimitador
+	hash_evaluador = (popen("md5sum "+os.path.basename(__file__)).read().split()[0]).strip() + delimitador
+	score = str(puntaje).strip() + delimitador
+	username = (popen("id -un").read().strip()) + delimitador
+	
+	flag = actual_script + hash_evaluador + score + username + get_date()
+	flag = codecs.encode(flag, "rot_13")
+	
+	flag_b64 = base64.b64encode(bytes(flag, 'utf-8'))
+	flag_b64 = flag_b64.decode('ascii')
+	flag_b64 = codecs.encode(flag_b64, "rot_13")
+	
+	return flag_b64
+
+def get_date():
+	return popen("date").read()
 
 ######################################################
 # Funciones básicas de evaluadores
-
-# Evaluar la integridad del script
-def check_integrity():
-	hash_repo = "aaa"
-	hash = popen("md5sum "+evaluador).read()
-	print(hash)
-	print(hash_repo)
-
-	if hash == hash_repo:
-		return 1
-	return 0
-
 # Primera parte
 def check_docker():
 	return check_program("docker")
@@ -59,26 +64,21 @@ def check_program(program):
 def main():
 	puntaje = 0
 
-	# Evaluar la integridad del script
-	if check_integrity == 1:
-		puntaje = puntaje+1
-		print(puntaje)
-	else:
-		print("La integridad del script parece corrupta, recuerda que no debes modificarlo")
-	
 	# Parte 1
 	if check_docker():
 		puntaje = puntaje+1
-		print(puntaje)
 	else:
 		print("Parece que no tienes instalado Docker")
 
 	# Parte 2
 	if check_docker_user():
 		puntaje = puntaje+1
-		print(puntaje)
 	else:
 		print("Parece que tu usuario no está autorizado para correr Docker sin _sudo_")
+
+	# Genera Flag
+	print("La flag es:\n")
+	print(create_flag(puntaje))
 
 if __name__ == "__main__":
 	main()
