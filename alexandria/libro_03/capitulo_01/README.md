@@ -1,4 +1,4 @@
-# Capítulo 1 - Accediendo al sistema
+# Capítulo 1 - Instalando Docker
 
 ¡Bienvenido nueva persona encargada de los sistemas!
 
@@ -7,6 +7,9 @@ También, sabemos que es inseguro tener que utilizar al usuario root para correr
 
 ### Requesitos
 + Máquina Debian 10/11 ó Máquina Ubuntu 20.04 LTS
+
+# Objetivo
+Instalar Docker y configurar los permisos de usuario.
 
 ### Capítulo 1 - Instalando Docker
 Realiza lo siguiente:
